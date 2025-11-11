@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import Ashram from "./models/ashram.js"; // adjust path
 
 const seedAshrams = async () => {
-  await mongoose.connect("mongodb+srv://rpchaithra07:rpchaithra12345@cluster0.ksmwceg.mongodb.net/?appName=Cluster0");
+  await mongoose.connect("replace_with_your_mongodb_connection_string");
 
   const ashrams = [
     {
