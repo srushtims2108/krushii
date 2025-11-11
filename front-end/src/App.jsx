@@ -6,19 +6,23 @@ import FarmerPage from "./pages/FarmerPage.jsx";
 import LandingPage from "./pages/LandingPage.jsx";  
 import FarmerDetailPage from "./pages/FarmerDetailPage.jsx";
 import Fmart from "./pages/Fmart.jsx";
+
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/about" element={<AboutUsPage />} />
-        <Route path="/" element={<LandingPage />} /> {/* <-- default route */}
-        <Route path="/ashram" element={<AshramPage />} />
-         <Route path="/farmers" element={<FarmerPage />} />
-        <Route path="/farmers/:id" element={<FarmerDetailPage />} />
-        <Route path="/Fmart" element={<Fmart />} />
-
-      </Routes>
-    </Router>
+    // Add .app-root so global CSS can make the app fill the viewport
+    
+      <Router>
+        <Routes>
+          <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/" element={<LandingPage />} /> {/* <-- default route */}
+          <Route path="/ashram" element={<AshramPage />} />
+          <Route path="/ashrams" element={<AshramPage />} /> {/* added: plural alias */}
+          <Route path="/farmers" element={<FarmerPage />} />
+          <Route path="/farmers/:id" element={<FarmerDetailPage />} />
+          <Route path="/Fmart" element={<Fmart />} />
+        </Routes>
+      </Router>
+   
   );
 }
 

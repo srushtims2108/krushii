@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global layout helpers to ensure pages fill the viewport */
 :root {
+  box-sizing: border-box;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -17,6 +19,40 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Make the page span the full viewport */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* App root should at minimum fill viewport and use column flex for header/content/footer layouts */
+.app-root {
+  min-height: 100vh; /* full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Page content that must fill remaining space:
+   Use .page-full on the page wrapper and .page-content to take remaining space (flex:1) */
+.page-full {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1 1 auto; /* grow to fill remaining vertical space */
+  display: block;
+  width: 100%;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -28,10 +64,10 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden; /* Prevents horizontal scroll */
 }
 
 h1 {
@@ -69,4 +105,10 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+/* Responsive images/videos */
+img, video, canvas {
+  max-width: 100%;
+  height: auto;
 }
