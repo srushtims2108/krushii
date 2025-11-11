@@ -1,3 +1,4 @@
+// backend/models/Farmer.js
 import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
@@ -11,8 +12,10 @@ const farmerSchema = new mongoose.Schema({
   contact: { type: String },
   location: { type: String },
   description: { type: String },
-  products: [productSchema], // <-- make sure this is an array of objects
+  products: [productSchema],
 });
 
-const Farmer = mongoose.model("Farmer", farmerSchema);
+// Check if model already exists to avoid OverwriteModelError
+const Farmer = mongoose.models.Farmer || mongoose.model("Farmer", farmerSchema);
+
 export default Farmer;

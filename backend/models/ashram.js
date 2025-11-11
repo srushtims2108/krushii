@@ -1,3 +1,4 @@
+//models/ashram.js
 import mongoose from "mongoose";
 
 const ashramSchema = new mongoose.Schema({
@@ -12,3 +13,4 @@ const ashramSchema = new mongoose.Schema({
 const Ashram = mongoose.model("Ashram", ashramSchema);
 
 export default Ashram;
+
